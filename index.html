@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego: Pidra, Papel o Tijera Final</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<!-- Login -->
+    <form class="form" method='POST' id=form>
+        <h1 class="form__title">Bienvenido al Juego</h1>
+        <img class='form__imagen'src="img/juego.svg">
+        <p class='form__paragraph'>Recuerda que la contraseña es:  1234</p>
+
+        <div class="form__container">
+            <div class="form__group">
+                <input type="text" name="" id="name" class="form__input" placeholder=' '>
+                <label for="name" class='form__label'>Nombre</label>
+                <span class='form__line'></span>
+            </div>
+
+            <div class="form__group">
+                <input type="email" name="" id="email" class="form__input" placeholder=' '>
+                <label for="email" class='form__label'>Correo Electrónico</label>
+                <span class='form__line'></span>
+            </div>
+
+            <div class="form__group">
+                <input type="password" name="" id="password" class="form__input" placeholder=' '>
+                <label for="password" class='form__label'>Contraseña</label>
+                <span class='form__line'></span>
+            </div>
+
+            <button type="submit" class='form__submit'>Entrar</button>
+            <p class='warnings' id='warnings'></p>
+        </div>
+    </form>
+<!-- Login -->
+
+<!-- Juego -->
+        <form class="form__game" method='POST' id=form__game>
+            <h1>Bienvenido al Juego</h1>
+            <h2>Debes seleccionar una de las opciones para iniciar</h2>
+            <h3 id="result"></h3>
+
+            <div class="form__game__container">
+
+                <div class="form__game__group1">
+                    <div class="hover-animation" id="piedra">
+                        <img src="img/piedra back.svg" alt="piedra" class="img-back" >
+                        <img src="img/piedra.svg" alt="piedra" class="img-front">
+                    </div>
+
+                    <div class="hover-animation" id="papel">
+                        <img src="img/papel back.svg" alt="piedra" class="img-back" >
+                        <img src="img/papel.svg" alt="piedra" class="img-front">
+                    </div>
+
+                    <div class="hover-animation" id="tijera">
+                        <img src="img/tijera back.svg" alt="piedra" class="img-back" >
+                        <img src="img/tijera.svg" alt="piedra" class="img-front">
+                    </div>
+
+                </div>
+
+                <div class="form__game__group2">
+                    <img src="img/vs.svg" alt="">
+                </div>
+
+                <div class="form__game__group3">
+                    <img src="img/interrogacion.svg" alt="" id='machine__img'>
+                </div>
+
+                <div class="form__game__puntaje">
+                    <h2>Puntaje Acumulado:</h2>
+                    <h2 id="puntaje">0</h2>
+                </div>
+
+                <div class="form__game__contador">
+                    <h2>Numero de intentos restantes:</h2>
+                    <h2 id="intentos"></h2>
+                </div>
+            </div>
+        </form>
+<!-- Juego -->
+
+<!-- Final de Juego -->
+    <div class="endGame__container" id='endGame__container'>
+                <h1>Su puntaje fue</h1>
+                <h2 id='puntaje'>0</h2>
+                <button class="form__submit"> Volver a Jugar </button>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>

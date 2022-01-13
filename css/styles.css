@@ -1,0 +1,217 @@
+@font-face{
+    font-family:'adinenue PRO-REGULAR';
+    src:url('../fonts/adineuePRO-Regular.otf')
+}
+
+@font-face{
+    font-family:'adinenue PRO-LIGHT';
+    src:url('../fonts/adineuePRO-Light.otf')
+}
+
+@font-face{
+    font-family:'adinenue PRO-BOLD';
+    src:url('../fonts/adineuePRO-Bold.otf')
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'adinenue PRO-REGULAR';
+    background: #FF6C99;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A823CC, #FF6C99);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A823CC, #FF6C99);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form{
+    background-color: white;
+    margin: auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 2em 3em;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px -5px rgb(255 255 255 );
+    text-align: center;
+}
+
+.form__title{
+    font-size: 2rem;
+    margin-bottom: 0.2em;
+    margin-top:20px;
+}
+
+.form__imagen{
+    width: 100%;
+}
+
+.form__paragraph{
+    font-weight: 300;
+    margin-top:20px;
+    color: #FF6C99;
+
+}
+
+.form__link{
+    font-weight: 400;
+    color: #FF6C99;
+}
+
+.form__container{
+    margin-top: 3em;
+    display: grid;
+    gap:2.5em
+}
+
+.form__group{
+    position: relative;
+    --color: #5757577e;
+}
+
+.form__input{
+    font-family:'adinenue PRO-LIGHT';
+    width: 100%;
+    background: none;
+    color: #706c6c;
+    font-size: 1rem;
+    padding: .6em;
+    border:none;
+    outline: none;
+    border-bottom: 2px solid var(--color);
+}
+
+.form__input:focus + .form__label,
+.form__input:not(:placeholder-shown) + .form__label{
+    transform: translateY(-12px) scale(.7);
+    transform-origin: left top;
+    color: #A823CC;
+}
+
+.form__label{
+    color: var(--color);
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    transform: translateY(10px);
+    transition:transform .5s, color .3s;
+
+}
+
+.form__submit{
+    background: linear-gradient(to right, #A823CC, #FF6C99);
+    color: white;
+    font-family:'adinenue PRO-BOLD';
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8em 0 ;
+    border: none;
+    border-radius: 2em;
+    box-shadow: 0 5px 10px -5px #FF6C99;
+    cursor: pointer;
+}
+
+.form__line{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #A823CC;
+    transform: scale(0);
+    transform:left bottom;
+    transition: transform 0.4s;
+
+}
+
+.form__input:focus ~ .form__line,
+.form__input:not(:placeholder-shown) ~ .form__line{
+    transform: scale(1);
+}
+
+.warnings{
+    width: 200px;
+    text-align: center;
+    margin: auto;
+    color: red;
+    padding-top: 20px;
+}
+
+/* Juego */
+
+.form__game{
+    display: none;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    padding: 2em 3em;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px -5px rgb(255 255 255 );
+    text-align: center;
+}
+
+.form__game h1{
+    font-size: 2rem;
+    margin-bottom: 0.2em;
+    margin-top:10px;
+}
+
+.form__game h2{
+    font-family:'adinenue PRO-LIGHT';
+    font-size: 2rem;
+    margin-bottom: 0.2em;
+    margin-top:10px;
+}
+
+.form__game__container{
+    margin-top: 3em;
+}
+
+.form__game__group1{
+    display: flex;
+}
+
+.hover-animation{
+    position: relative;
+    height: 171px;
+    width: 143px;
+    margin:auto;
+}
+
+.hover-animation img{
+    position: absolute;
+    left: 0;
+    height: 171px;
+    width: 143px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.hover-animation img.img-front:hover{
+    opacity: 0;
+    cursor: pointer;
+}
+
+.endGame__container{
+    display: none;
+    background-color: white;
+    margin: auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 2em 3em;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px -5px rgb(255 255 255 );
+    text-align: center;
+}
+
