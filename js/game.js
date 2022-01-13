@@ -12,14 +12,17 @@ const tijeraBtn = document.getElementById('tijera');
 const resultText = document.getElementById('result');
 const machineImg = document.getElementById('machine__img');
 const totalPuntos = document.getElementById('puntaje')
+const totalPuntosFinales = document.getElementById('puntaje2')
 const numeroIntentos = document.getElementById('intentos')
 
+//Puntajes
+
+
+
 let puntosTotales = []
+let puntajeFinal = 0
 let acumulador = 2;
 numeroIntentos.innerHTML = '<strong>'+acumulador+'</strong>'
-
-//document.getElementById('endGame__container').style.display = 'none'
-
 
 piedraBtn.addEventListener('click',()=>{
     play(PIEDRA);
@@ -45,11 +48,12 @@ function play(userOption){
     },200);
 
 setTimeout(function(){
+    puntajeFinal = simpleArraySum(puntosTotales);
     let sumaPuntosTotales
     let puntos = 0;
     acumulador --;
 
-    if(acumulador >=1 ){
+    if(acumulador >=0 ){
 
     clearInterval(interval);
     const machineOption = calcMachineOption();
@@ -81,6 +85,8 @@ setTimeout(function(){
     totalPuntos.innerHTML = '<strong>'+sumaPuntosTotales+'</strong>';
     numeroIntentos.innerHTML = '<strong>'+acumulador+'</strong>'
     }else{
+        puntosTotales.push(puntos);
+        totalPuntosFinales.innerHTML = '<strong>'+puntajeFinal+'</strong>';
         document.getElementById('form__game').style.display = 'none'
         document.getElementById('endGame__container').style.display = 'block'
         }
