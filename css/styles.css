@@ -1,3 +1,4 @@
+/*Tipografias*/
 @font-face{
     font-family:'adinenue PRO-REGULAR';
     src:url('../fonts/adineuePRO-Regular.otf')
@@ -35,6 +36,7 @@ body{
     min-height: 100vh;
 }
 
+/*Estilos de Login*/
 .form{
     background-color: white;
     margin: auto;
@@ -148,7 +150,7 @@ body{
     padding-top: 20px;
 }
 
-/* Juego */
+/* Estilo Juego */
 
 .form__game{
     display: none;
@@ -203,6 +205,7 @@ body{
     cursor: pointer;
 }
 
+/*Estilo Final Juego*/
 .endGame__container{
     display: none;
     background-color: white;
@@ -230,4 +233,3 @@ body{
     box-shadow: 0 5px 10px -5px #FF6C99;
     cursor: pointer;
 }
-/**/

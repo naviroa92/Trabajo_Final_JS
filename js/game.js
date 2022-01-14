@@ -1,3 +1,5 @@
+
+//Variables
 const PIEDRA = 'piedra';
 const PAPEL = 'papel';
 const TIJERA = 'tijera';
@@ -11,32 +13,40 @@ const papelBtn = document.getElementById('papel');
 const tijeraBtn = document.getElementById('tijera');
 const resultText = document.getElementById('result');
 const machineImg = document.getElementById('machine__img');
-const totalPuntos = document.getElementById('puntaje')
+let totalPuntos = document.getElementById('puntaje')
 const totalPuntosFinales = document.getElementById('puntaje2')
 const numeroIntentos = document.getElementById('intentos')
+const btnJugarNuevamente = document.getElementById('btnReiniciarJuego')
+let arrayPuntosAcumulados = [];
 
 //Puntajes
-
-
-
 let puntosTotales = []
 let puntajeFinal = 0
-let acumulador = 2;
+
+//Acumulador
+let acumulador = 10;
 numeroIntentos.innerHTML = '<strong>'+acumulador+'</strong>'
 
+
+//Boton Piedra
 piedraBtn.addEventListener('click',()=>{
     play(PIEDRA);
 });
 
+
+//Boton papel
 papelBtn.addEventListener('click',()=>{
     play(PAPEL);
 });
 
 
+//Boton tijera
 tijeraBtn.addEventListener('click',()=>{
     play(TIJERA);
 });
 
+
+//Funcion calculo de Puntaje - Resulatdo
 function play(userOption){
 
     resultText.innerHTML = 'La maquina esta Escogiendo !!!';
@@ -49,12 +59,10 @@ function play(userOption){
 
 setTimeout(function(){
     puntajeFinal = simpleArraySum(puntosTotales);
-    let sumaPuntosTotales
+    let sumaPuntosTotales = 0;
     let puntos = 0;
     acumulador --;
-
-    if(acumulador >=0 ){
-
+    if(acumulador >=1 ){
     clearInterval(interval);
     const machineOption = calcMachineOption();
     const result = calcResult(userOption, machineOption);
@@ -92,6 +100,8 @@ setTimeout(function(){
         }
 },2000);
 
+
+//Funcion calculo random AI
 function calcMachineOption(){
     const number = Math.floor(Math.random() * 3);
     switch(number){
@@ -101,10 +111,11 @@ function calcMachineOption(){
             return PAPEL;
         case 2:
             return TIJERA;
-
     }
 }
 
+
+//Funcion calculo resultado (WIN - LOST - TIE)
 function calcResult(userOption, machineOption){
 
     if(userOption === machineOption){
@@ -125,6 +136,7 @@ function calcResult(userOption, machineOption){
 }
 }
 
+//Funcion suma de array
 function simpleArraySum(ar) {
     var sum = 0;
     for (var i = 0; i < ar.length; i++) {
@@ -132,3 +144,18 @@ function simpleArraySum(ar) {
     }
     return sum;
 }
+
+function addToLocalStorage(userOption, machineOption, result) {
+    const savedResults = JSON.parse(localStorage.getItem("result"));
+    savedResults.push({ puntajeFinal });
+    localStorage.setItem("result", JSON.stringify(savedResults));
+}
+
+document.getElementById("replay-game").addEventListener("click", replay);
+
+//function replay, clear result and score
+function replay() {
+  localStorage.setItem("result", "[]");
+  window.location.reload();
+}
+
